@@ -3,13 +3,13 @@
 layout: home
 
 hero:
-  name: "jstoolpack"
-  text: "this is jstoolpack api documents website"
-  tagline: My great project tagline
+  name: "Fanteng's Code Trash Can"
+  text: "Code records at work"
+  tagline: There's nothing available
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: How to deploy GitHub Pages
+      link: /HowToDeployGitHubPages
     - theme: alt
       text: API Examples
       link: /api-examples
@@ -22,5 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
-

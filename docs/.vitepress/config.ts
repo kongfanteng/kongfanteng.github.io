@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "jstoolpack",
-  description: "whatever",
+  title: "Trash Can",
+  description: "Code records at work",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -89,4 +89,3 @@ export default defineConfig({
     ],
   },
 });
-
