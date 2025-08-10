@@ -15,8 +15,9 @@ hero:
       link: /JestUsageExample3AStep
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: HandleJest
+    details: 手写简易 jest
+    link: /HandleJest
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
