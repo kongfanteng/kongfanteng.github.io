@@ -18,8 +18,9 @@ features:
   - title: HandleJest
     details: 手写简易 jest
     link: /HandleJest
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: CursorUse
+    details: Cursor 使用
+    link: /cursor/CursorUse
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
