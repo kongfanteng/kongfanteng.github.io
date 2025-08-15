@@ -21,6 +21,6 @@ features:
   - title: CursorUse
     details: Cursor 使用
     link: /cursor/CursorUse
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Cursor Rules
+    link: /cursor/cursor-rules-guide
 ---
