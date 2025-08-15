@@ -4,6 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Trash Can",
   description: "Code records at work",
+  base: "/", // 设置为根路径，支持用户站点部署
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
