@@ -8,11 +8,19 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
+      { text: "Note", link: "/note/Cursor/notepads" },
       { text: "Guide", link: "/guide/introduction/what-is-vitepress" },
       { text: "Reference", link: "/reference/api/runtime-api" },
     ],
 
     sidebar: {
+      "/note/": [
+        {
+          text: "Cursor",
+          collapsed: true,
+          items: [{ text: "Notepads", link: "/note/Cursor/notepads" }],
+        },
+      ],
       // 为 "/guide/" 路径配置专属的侧边栏
       "/guide/": [
         {
