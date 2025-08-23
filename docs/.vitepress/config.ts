@@ -23,7 +23,10 @@ export default defineConfig({
         {
           text: "LLM",
           collapsed: true,
-          items: [{ text: "LLM-01-info", link: "/note/LLM/01-info" }],
+          items: [
+            { text: "01-info", link: "/note/LLM/01-info" },
+            { text: "02-N-Gram 模型", link: "/note/LLM/02-N-Gram-model" },
+          ],
         },
       ],
       // 为 "/guide/" 路径配置专属的侧边栏
