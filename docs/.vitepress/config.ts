@@ -20,6 +20,11 @@ export default defineConfig({
           collapsed: true,
           items: [{ text: "Notepads", link: "/note/Cursor/notepads" }],
         },
+        {
+          text: "LLM",
+          collapsed: true,
+          items: [{ text: "LLM-01-info", link: "/note/LLM/01-info" }],
+        },
       ],
       // 为 "/guide/" 路径配置专属的侧边栏
       "/guide/": [
