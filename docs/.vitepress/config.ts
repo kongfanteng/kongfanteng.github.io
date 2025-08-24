@@ -27,6 +27,7 @@ export default defineConfig({
             { text: "01-info", link: "/note/LLM/01-info" },
             { text: "02-N-Gram 模型", link: "/note/LLM/02-N-Gram-model" },
             { text: "03-词袋模型", link: "/note/LLM/03-词袋模型" },
+            { text: "04-词元", link: "/note/LLM/04-词元" },
           ],
         },
       ],
