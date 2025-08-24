@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { LLMConfig } from "./LLM-config";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -28,17 +29,7 @@ export default defineConfig({
             { text: "04-notepads", link: "/note/Cursor/04-notepads" },
           ],
         },
-        {
-          text: "LLM",
-          collapsed: true,
-          items: [
-            { text: "01-info", link: "/note/LLM/01-info" },
-            { text: "02-N-Gram 模型", link: "/note/LLM/02-N-Gram-model" },
-            { text: "03-词袋模型", link: "/note/LLM/03-词袋模型" },
-            { text: "04-词元", link: "/note/LLM/04-词元" },
-            { text: "05-嵌入", link: "/note/LLM/05-嵌入" },
-          ],
-        },
+        LLMConfig,
         {
           text: "前端工具链",
           collapsed: true,
