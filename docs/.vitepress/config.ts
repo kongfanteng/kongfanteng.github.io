@@ -42,7 +42,35 @@ export default defineConfig({
         {
           text: "前端工具链",
           collapsed: true,
-          items: [{ text: "01-info", link: "/note/前端工具链/01-info" }],
+          items: [
+            {
+              text: "1-概念与抽象语法树",
+              collapsed: true,
+              items: [
+                {
+                  text: "01-概念",
+                  collapsed: true,
+                  link: "/note/前端工具链/1-概念与抽象语法树/01-概念",
+                },
+                {
+                  text: "02-抽象语法树",
+                  collapsed: true,
+                  link: "/note/前端工具链/1-概念与抽象语法树/02-抽象语法树",
+                },
+              ],
+            },
+            {
+              text: "2-Prettier",
+              collapsed: true,
+              items: [
+                {
+                  text: "01-Prettier",
+                  collapsed: true,
+                  link: "/note/前端工具链/2-Prettier/01-info",
+                },
+              ],
+            },
+          ],
         },
       ],
       // 为 "/guide/" 路径配置专属的侧边栏
