@@ -18,9 +18,4 @@ features:
   - title: HandleJest
     details: 手写简易 jest
     link: /HandleJest
-  - title: CursorUse
-    details: Cursor 使用
-    link: /cursor/CursorUse
-  - title: Cursor Rules
-    link: /cursor/cursor-rules-guide
 ---

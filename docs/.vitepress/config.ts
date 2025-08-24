@@ -8,7 +8,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Note", link: "/note/Cursor/notepads" },
+      { text: "Note", link: "/note/Cursor/01-info" },
       { text: "Guide", link: "/guide/introduction/what-is-vitepress" },
       { text: "Reference", link: "/reference/api/runtime-api" },
     ],
@@ -18,7 +18,15 @@ export default defineConfig({
         {
           text: "Cursor",
           collapsed: true,
-          items: [{ text: "Notepads", link: "/note/Cursor/notepads" }],
+          items: [
+            { text: "01-info", link: "/note/Cursor/01-info" },
+            { text: "02-cursor 使用", link: "/note/Cursor/02-CursorUse" },
+            {
+              text: "03-cursor 规则",
+              link: "/note/Cursor/03-cursor-rules-guide",
+            },
+            { text: "04-notepads", link: "/note/Cursor/04-notepads" },
+          ],
         },
         {
           text: "LLM",
@@ -28,6 +36,7 @@ export default defineConfig({
             { text: "02-N-Gram 模型", link: "/note/LLM/02-N-Gram-model" },
             { text: "03-词袋模型", link: "/note/LLM/03-词袋模型" },
             { text: "04-词元", link: "/note/LLM/04-词元" },
+            { text: "05-嵌入", link: "/note/LLM/05-嵌入" },
           ],
         },
       ],
