@@ -39,6 +39,11 @@ export default defineConfig({
             { text: "05-嵌入", link: "/note/LLM/05-嵌入" },
           ],
         },
+        {
+          text: "前端工具链",
+          collapsed: true,
+          items: [{ text: "01-info", link: "/note/前端工具链/01-info" }],
+        },
       ],
       // 为 "/guide/" 路径配置专属的侧边栏
       "/guide/": [
