@@ -21,6 +21,10 @@ export const LLMConfig = {
           text: "06-transformer内部结构",
           link: "/note/LLM2/06-transformer内部结构",
         },
+        {
+          text: "07-Transformer解码策略",
+          link: "/note/LLM2/07-Transformer解码策略",
+        },
       ],
     },
   ],
