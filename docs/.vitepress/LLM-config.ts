@@ -29,6 +29,10 @@ export const LLMConfig = {
           text: "08-transformer块",
           link: "/note/LLM2/08-transformer块",
         },
+        {
+          text: "09-本地部署大模型",
+          link: "/note/LLM2/09-本地部署大模型",
+        },
       ],
     },
   ],
