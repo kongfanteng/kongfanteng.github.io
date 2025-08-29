@@ -33,6 +33,10 @@ export const LLMConfig = {
           text: "09-本地部署大模型",
           link: "/note/LLM2/09-本地部署大模型",
         },
+        {
+          text: "10-Agent",
+          link: "/note/LLM2/10-Agent",
+        },
       ],
     },
   ],
