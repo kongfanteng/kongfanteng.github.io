@@ -14,7 +14,7 @@
 
 #### LLM 发展历程
 
-![LLM 发展史](../../images/LLM/LLM发展史.png)
+![LLM 发展史](/public/images/LLM/LLM发展史.png)
 
 #### 在 LLM 学习中的应用
 
