@@ -39,5 +39,10 @@ export const LLMConfig = {
         },
       ],
     },
+    {
+      text: "LLM3",
+      collapsed: true,
+      items: [{ text: "11-流式返回信息", link: "/note/LLM3/11-流式返回信息" }],
+    },
   ],
 };
