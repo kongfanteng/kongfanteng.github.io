@@ -45,6 +45,7 @@ export const LLMConfig = {
       items: [
         { text: "11-流式返回信息", link: "/note/LLM3/11-流式返回信息" },
         { text: "12-支持上下文", link: "/note/LLM3/12-支持上下文" },
+        { text: "13-获取实时消息", link: "/note/LLM3/13-获取实时消息" },
       ],
     },
   ],
