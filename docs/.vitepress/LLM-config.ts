@@ -47,6 +47,7 @@ export const LLMConfig = {
         { text: "12-支持上下文", link: "/note/LLM3/12-支持上下文" },
         { text: "13-获取实时消息", link: "/note/LLM3/13-获取实时消息" },
         { text: "16-外接 deepseek", link: "/note/LLM3/16-外接_deepseek" },
+        { text: "17-FunctionCalling", link: "/note/LLM3/17-FunctionCalling" },
       ],
     },
   ],
