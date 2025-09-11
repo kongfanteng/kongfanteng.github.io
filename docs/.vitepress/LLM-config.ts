@@ -50,5 +50,10 @@ export const LLMConfig = {
         { text: "17-FunctionCalling", link: "/note/LLM3/17-FunctionCalling" },
       ],
     },
+    {
+      text: "LLM4",
+      collapsed: true,
+      items: [{ text: "19-MCP", link: "/note/LLM4/19-MCP" }],
+    },
   ],
 };
