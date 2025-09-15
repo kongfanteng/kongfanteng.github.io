@@ -18,4 +18,10 @@ features:
   - title: HandleJest
     details: 手写简易 jest
     link: /HandleJest
+  - title: playwright
+    details: 手写简易 jest
+    link: /other/playwright
+  - title: playwright笔记
+    details: 手写简易 jest
+    link: /other/playwright笔记
 ---
