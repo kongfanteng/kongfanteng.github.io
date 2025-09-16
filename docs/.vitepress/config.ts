@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import { LLMConfig } from "./LLM-config";
+import { OtherConfig } from "./other-config";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,11 +11,11 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Note", link: "/note/Cursor/01-info" },
-      { text: "Guide", link: "/guide/introduction/what-is-vitepress" },
-      { text: "Reference", link: "/reference/api/runtime-api" },
+      { text: "Other", link: "/other/playwright笔记" },
     ],
 
     sidebar: {
+      "/other/": [OtherConfig],
       "/note/": [
         {
           text: "Cursor",
