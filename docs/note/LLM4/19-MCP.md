@@ -35,3 +35,25 @@ messages.forEach((msg, index) => {
 ### 理解
 
 1. 父子进程模型; stdio 仅限于本地通信;
+
+## 20-【MCP】JSON-RPC2.0
+
+1. 通信格式; RPC2.0 基于 json; 远程函数调用;
+2. jsonrpc, method, params, id;
+3. demo; server.js; stdin.on; utils.js, 导出 sum; req, funcName, params, result;
+4. createFile; filename, content; fs 写入;
+
+```
+const utils = require("./utils");
+process.stdin.on("data", (data) => {
+  const req = JSON.parse(data);
+  const { method, params } = req;
+  const result = utils[method](params);
+  const res = JSON.stringify({ id: req.id, result });
+  process.stdout.write(res);
+});
+
+/** { "jsonrpc": "2.0", "method": "sum", "params": { "a": 11, "b": 22 }, "id": 1 }
+
+{ "jsonrpc": "2.0", "method": "createFile", "params": {  "filename": "/Users/workplace/LEARN/ai-practice/mcp/MCP_JSON/test.txt", "content": "Hello, MCP!" }, "id": 2 } */
+```
