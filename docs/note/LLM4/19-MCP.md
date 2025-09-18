@@ -57,3 +57,188 @@ process.stdin.on("data", (data) => {
 
 { "jsonrpc": "2.0", "method": "createFile", "params": {  "filename": "/Users/workplace/LEARN/ai-practice/mcp/MCP_JSON/test.txt", "content": "Hello, MCP!" }, "id": 2 } */
 ```
+
+## 21-【MCP】Server
+
+整理逻辑，抽离主要逻辑;
+
+1. mcp，规定程序如何通信;
+2. server.js; stdin.on; req, result;
+
+```
+const tools = require("./tools");
+const Protocall = require("./protocall");
+process.stdin.on("data", (data) => {
+  const req = JSON.parse(data);
+  let result;
+  if (req.method === "tools/call") {
+    result = tools[req.params.name](req.params.arguments);
+  } else if (req.method in Protocall) {
+    result = Protocall[req.method]();
+  } else {
+    return;
+  }
+  const res = {
+    jsonrpc: "2.0",
+    id: req.id,
+    result,
+  };
+  process.stdout.write(JSON.stringify(res));
+});
+```
+
+3. tools.js; sum; content 数组; type, text;
+
+```
+const fs = require("fs");
+module.exports = {
+  sum: ({ a, b }) => ({
+    content: [
+      {
+        type: "text",
+        text: `The sum of ${a} and ${b} is ${a + b}`,
+      },
+    ],
+  }),
+  createFile: ({ filename, content }) => {
+    try {
+      fs.writeFileSync(filename, content);
+      return {
+        content: [
+          {
+            type: "text",
+            text: `The file ${filename} has been created`,
+          },
+        ],
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: error.message || "文件创建失败",
+          },
+        ],
+      };
+    }
+  },
+};
+
+```
+
+3. 调用，方法，传参; res; write;
+
+```
+const tools = require("./tools");
+const Protocall = require("./protocall");
+process.stdin.on("data", (data) => {
+  const req = JSON.parse(data);
+  let result;
+  if (req.method === "tools/call") {
+    result = tools[req.params.name](req.params.arguments);
+  } else if (req.method in Protocall) {
+    result = Protocall[req.method]();
+  } else {
+    return;
+  }
+  const res = {
+    jsonrpc: "2.0",
+    id: req.id,
+    result,
+  };
+  process.stdout.write(JSON.stringify(res));
+});
+```
+
+3. protocall.js; initialize, toos/list;
+
+```
+module.exports = {
+  initialize() {
+    return {
+      protocolVersion: "2024-11-05",
+      capabilities: {
+        logging: {},
+        prompts: {
+          listChanged: true,
+        },
+        resources: {
+          subscribe: true,
+          listChanged: true,
+        },
+        tools: {
+          listChanged: true,
+        },
+      },
+      serverInfo: {
+        name: "ExampleServer",
+        title: "Example Server Display Name",
+        version: "1.0.0",
+      },
+      instructions: "Optional instructions for the client",
+    };
+  },
+
+  "tools/list"() {
+    return {
+      tools: [
+        {
+          name: "sum",
+          title: "两数求和",
+          description: "得到两个数的和",
+          inputSchema: {
+            type: "object",
+            properties: {
+              a: {
+                type: "number",
+                description: "第一个数",
+              },
+              b: {
+                type: "number",
+                description: "第二个数",
+              },
+            },
+            required: ["a", "b"],
+          },
+        },
+        {
+          name: "createFile",
+          title: "创建文件",
+          description: "在指定目录下创建一个文件",
+          inputSchema: {
+            type: "object",
+            properties: {
+              filename: {
+                type: "string",
+                description: "文件名",
+              },
+              content: {
+                type: "string",
+                description: "文件内容",
+              },
+            },
+            required: ["filename", "content"],
+          },
+        },
+      ],
+    };
+  },
+};
+
+```
+
+4. 测试文件.txt
+
+```
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"roots":{"listChanged":true},"sampling":{},"elicitation":{}},"clientInfo":{"name":"ExampleClient","title":"Example Client Display Name","version":"1.0.0"}}}
+
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"sum","arguments":{"a":1, "b":2}}}
+
+{ "jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": { "name" :"createFile",  "arguments":{"filename": "/Users/workplace/LEARN/ai-practice/mcp/21.mcp_server/output.txt", "content": "Hello, AI!"}}}
+
+```
+
+4. tools.js; 创建文件; createFile;
+5. 安装测试 mcpserver 的安装包; `npx @modelcontextprotocol/inspector`
