@@ -56,6 +56,7 @@ export const LLMConfig = {
       items: [
         { text: "19-MCP", link: "/note/LLM4/19-MCP" },
         { text: "22-mcp", link: "/note/LLM4/22-mcp" },
+        { text: "23-mcp-weather", link: "/note/LLM4/23-mcp-weather" },
       ],
     },
   ],
