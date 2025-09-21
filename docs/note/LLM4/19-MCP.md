@@ -66,57 +66,64 @@ process.stdin.on("data", (data) => {
 2. server.js; stdin.on; req, result;
 
 ```
-const tools = require("./tools");
-const Protocall = require("./protocall");
+const tools = require("./tools.js");
+const protocal = require("./protocal.js");
 process.stdin.on("data", (data) => {
   const req = JSON.parse(data);
-  let result;
+  let result; // 存储执行工具的结果
   if (req.method === "tools/call") {
+    // 说明是要调用工具
     result = tools[req.params.name](req.params.arguments);
-  } else if (req.method in Protocall) {
-    result = Protocall[req.method]();
+  } else if (req.method in protocal) {
+    result = protocal[req.method](req.params);
   } else {
     return;
   }
+
   const res = {
     jsonrpc: "2.0",
-    id: req.id,
     result,
+    id: req.id,
   };
-  process.stdout.write(JSON.stringify(res));
+
+  process.stdout.write(JSON.stringify(res) + "\n");
 });
+
+
 ```
 
-3. tools.js; sum; content 数组; type, text;
+3. 调用，方法，传参; res; write; tools.js;
 
 ```
 const fs = require("fs");
 module.exports = {
-  sum: ({ a, b }) => ({
-    content: [
-      {
-        type: "text",
-        text: `The sum of ${a} and ${b} is ${a + b}`,
-      },
-    ],
-  }),
-  createFile: ({ filename, content }) => {
+  sum({ a, b }) {
+    return {
+      content: [
+        {
+          type: "text",
+          text: `两个数求和结果为${a + b}`,
+        },
+      ],
+    };
+  },
+  createFile({ filename, content }) {
     try {
       fs.writeFileSync(filename, content);
       return {
         content: [
           {
             type: "text",
-            text: `The file ${filename} has been created`,
+            text: "文件创建成功",
           },
         ],
       };
-    } catch (error) {
+    } catch (err) {
       return {
         content: [
           {
             type: "text",
-            text: error.message || "文件创建失败",
+            text: err.message || "文件创建失败",
           },
         ],
       };
@@ -126,31 +133,7 @@ module.exports = {
 
 ```
 
-3. 调用，方法，传参; res; write;
-
-```
-const tools = require("./tools");
-const Protocall = require("./protocall");
-process.stdin.on("data", (data) => {
-  const req = JSON.parse(data);
-  let result;
-  if (req.method === "tools/call") {
-    result = tools[req.params.name](req.params.arguments);
-  } else if (req.method in Protocall) {
-    result = Protocall[req.method]();
-  } else {
-    return;
-  }
-  const res = {
-    jsonrpc: "2.0",
-    id: req.id,
-    result,
-  };
-  process.stdout.write(JSON.stringify(res));
-});
-```
-
-3. protocall.js; initialize, toos/list;
+3. protocal.js; initialize, toos/list;
 
 ```
 module.exports = {
@@ -171,6 +154,7 @@ module.exports = {
         },
       },
       serverInfo: {
+        // 服务端信息
         name: "ExampleServer",
         title: "Example Server Display Name",
         version: "1.0.0",
@@ -178,7 +162,6 @@ module.exports = {
       instructions: "Optional instructions for the client",
     };
   },
-
   "tools/list"() {
     return {
       tools: [
@@ -224,7 +207,6 @@ module.exports = {
     };
   },
 };
-
 ```
 
 4. 测试文件.txt

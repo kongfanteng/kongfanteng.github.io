@@ -53,7 +53,10 @@ export const LLMConfig = {
     {
       text: "LLM4",
       collapsed: true,
-      items: [{ text: "19-MCP", link: "/note/LLM4/19-MCP" }],
+      items: [
+        { text: "19-MCP", link: "/note/LLM4/19-MCP" },
+        { text: "22-mcp", link: "/note/LLM4/22-mcp" },
+      ],
     },
   ],
 };
