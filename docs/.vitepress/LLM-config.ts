@@ -58,6 +58,7 @@ export const LLMConfig = {
         { text: "22-mcp", link: "/note/LLM4/22-mcp" },
         { text: "23-mcp-weather", link: "/note/LLM4/23-mcp-weather" },
         { text: "24-mcp-resource", link: "/note/LLM4/24-mcp-resource" },
+        { text: "27-mcp.监听资源更新", link: "/note/LLM4/27-mcp.监听资源更新" },
       ],
     },
   ],

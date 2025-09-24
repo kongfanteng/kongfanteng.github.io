@@ -24,7 +24,6 @@
 
 ## 26. 注册资源模板
 
-- 步骤: 创建文件->LLM-config 配置->新增 header xx -> 完整阶段视频->重要内容笔记, 重要内容暂停记录, 普通内容完成整一段后记录 ->代码->测试->更新笔记->部署;
 - 资源模板, 根据参数动态构建 URI; 三种 Schema, ReadResourceRequestSchema, ListResourcesRequestSchema, ListResourceTemplatesRequestSchema;
 - 代码; src/assets, src/code; Server; StdioServerTransport; server, name, version, capabilities, resources; transport; connect;
 - setRequestHandler, ListResourcesRequestSchema, resourceTemplates, uri, name, description, mimeType;
